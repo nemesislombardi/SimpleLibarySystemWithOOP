@@ -4,7 +4,7 @@ class Student:
         self.Name = Name
         self.borrowedBooks = []
 
-    def showInfo(self):
+    def showStudent(self):
         print(f"""
         
         ID: {self.studentID}
