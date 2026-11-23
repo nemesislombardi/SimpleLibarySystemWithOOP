@@ -1,43 +1,34 @@
-class Book:
-    def __init__(self,bookID,title,author,pageCount):
-        self.bookID = bookID
-        self.title = title
-        self.author = author
-        self.pageCount = pageCount
-        self.isAvaible = True
+class Student:
+    def __init__(self, studentID, Name):
+        self.studentID = studentID
+        self.Name = Name
+        self.borrowedBooks = []
 
-    def showBook(self):
+    def showInfo(self):
         print(f"""
         
-        ID: {self.bookID}
-        Tittle: {self.title}
-        Author: {self.author}
-        Page Count: {self.pageCount}
+        ID: {self.studentID}
+        Name: {self.studentID}
+        Borrowed Books: {len(self.borrowedBooks)}
 
         """)
 
-        if self.isAvaible:
-            print("Status: Avaible.")
+    def borrowBook(self,book):
+        if book.isAvaliable:
+            book.borrow()
+            self.borrowedBooks.append(book)
+            print("Book Borrowed.")
         else:
-            print("Status: Borrowed.")
+            print("Book is not avaible.")
 
-    def borrow(self):
-        if self.isAvaible:
-            self.isAvaible = False
-            print(f"{self.title} Borrowed.")
+    def returnBook(self,book):
+        if book in self.borrowedBooks:
+            book.returnBook()
+            self.borrowedBooks.remove(book)
+            print("Book returned.")
         else:
-            print("Print This Book Already Borrowed.")
+            print("Book is not avaible")
 
-    def returnBook(self):
-        if not self.isAvaible:
-            self.isAvaible = True
-            print(f"{self.title} Returned.")
-        else:
-            print("This book already Returned.")
-            
-book1 = Book(1, "Laylay", "Duben", 30)
-book2 = Book(2, "Clean Code", "Marc", 222)
-book3 = Book(3, "Dream", "Jason", 80)
-
-for x in book1,book2,book3:
-    x.showBook()
+s1 = Student(1, "Mustafa")
+s2 = Student(2, "Resul")
+s3 = Student(3, "Ayxan")
