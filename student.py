@@ -6,29 +6,21 @@ class Student:
 
     def showStudent(self):
         print(f"""
-        
         ID: {self.studentID}
         Name: {self.Name}
         Borrowed Books: {len(self.borrowedBooks)}
-
         """)
 
-    def borrowBook(self,book):
-        if book.isAvaliable:
+    def borrowBook1(self, book):
+        if book.isAvailable:
             book.borrow()
             self.borrowedBooks.append(book)
-            print("Book Borrowed.")
         else:
-            print("Book is not avaible.")
+            print("Book is not available.")
 
-    def returnBookS(self,book):
+    def returnBookS(self, book):
         if book in self.borrowedBooks:
             book.returnBook()
             self.borrowedBooks.remove(book)
-            print("Book returned.")
         else:
-            print("Book is not avaible")
-
-s1 = Student(1, "Mustafa")
-s2 = Student(2, "Resul")
-s3 = Student(3, "Ayxan")
+            print("This student has not borrowed this book.")

@@ -2,18 +2,17 @@ from book import *
 from student import *
 
 
-class Libary:
+class Library:
     def __init__(self, name):
         self.name = name
         self.books = []
         self.students = []
 
-
-    def addBooks(self,book):
+    def addBooks(self, book):
         self.books.append(book)
 
-    def addStudent(self,student):
-        self.addStudent(student)
+    def addStudent(self, student):
+        self.students.append(student)
 
     def showBooks(self):
         if not self.books:
@@ -22,8 +21,7 @@ class Libary:
 
         for x in self.books:
             x.showBook()
-            print("-" *30)
-            
+            print("-" * 30)
 
     def showStudent(self):
         if not self.students:
@@ -32,8 +30,7 @@ class Libary:
 
         for x in self.students:
             x.showStudent()
-            print("-" *30)
-            
+            print("-" * 30)
 
     def searchBook(self, bookID):
         if not self.books:
@@ -46,30 +43,28 @@ class Libary:
                 print(f"Title: {x.title}")
                 print(f"Author: {x.author}")
                 print(f"Page Count: {x.pageCount}")
-                print(f"Status: {'Available' if x.isAvaible else 'Borrowed'}")
+                print(f"Status: {'Available' if x.isAvailable else 'Borrowed'}")
                 print("-" * 30)
                 return
 
         print("Book not found.")
 
-
-
-    def searchStudent(self,studentID):
+    def searchStudent(self, studentID):
         if not self.students:
             print("Student data empty")
             return
 
         for x in self.students:
-            if x['id'] == studentID:
-                print(f"ID: {x[self.studentID]}")
-                print(f"Name: {x[self.Name]}")
-                print(f"Borrowed Books: {x[len(self.borrowedBooks)]}")
-                print("-" *30)
+            if x.studentID == studentID:
+                print(f"ID: {x.studentID}")
+                print(f"Name: {x.Name}")
+                print(f"Borrowed Books: {len(x.borrowedBooks)}")
+                print("-" * 30)
                 return
-            
+
         print("Student not found.")
 
-    def borrowBook(self,studentID,bookID):
+    def borrowBook(self, studentID, bookID):
         if not self.students:
             print("Student data empty")
             return
@@ -79,9 +74,9 @@ class Libary:
             return
 
         student = None
-        for s in self.students:
-            if s.studentID == studentID:
-                student = s
+        for x in self.students:
+            if x.studentID == studentID:
+                student = x
                 break
 
         if student is None:
@@ -89,18 +84,18 @@ class Libary:
             return
 
         book = None
-        for b in self.books:
-            if b.bookID == bookID:
-                book = b
+        for x in self.books:
+            if x.bookID == bookID:
+                book = x
                 break
 
         if book is None:
             print("Book not found.")
             return
 
-        student.borrowBook(book)
+        student.borrowBook1(book)
 
-    def returnBook(self,studentID,bookID):
+    def returnBook(self, studentID, bookID):
         if not self.students:
             print("Student data empty")
             return
@@ -110,9 +105,9 @@ class Libary:
             return
 
         student = None
-        for s in self.students:
-            if s.studentID == studentID:
-                student = s
+        for x in self.students:
+            if x.studentID == studentID:
+                student = x
                 break
 
         if student is None:
@@ -120,9 +115,9 @@ class Libary:
             return
 
         book = None
-        for b in self.books:
-            if b.bookID == bookID:
-                book = b
+        for x in self.books:
+            if x.bookID == bookID:
+                book = x
                 break
 
         if book is None:
