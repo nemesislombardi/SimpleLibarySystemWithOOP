@@ -8,7 +8,7 @@ class Student:
         print(f"""
         
         ID: {self.studentID}
-        Name: {self.studentID}
+        Name: {self.Name}
         Borrowed Books: {len(self.borrowedBooks)}
 
         """)
