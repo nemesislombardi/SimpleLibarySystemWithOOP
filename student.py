@@ -21,7 +21,7 @@ class Student:
         else:
             print("Book is not avaible.")
 
-    def returnBook(self,book):
+    def returnBookS(self,book):
         if book in self.borrowedBooks:
             book.returnBook()
             self.borrowedBooks.remove(book)
