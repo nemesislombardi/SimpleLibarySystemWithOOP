@@ -43,17 +43,58 @@ def main():
         choice = getInt("Enter choice; ")
 
         if choice == 1:
-            bookID = getInt("Book ID: ")
-            title = input("Title: ")
-            author = input("Author: ")
-            pageCount = getInt("Page count: ")
+            bookID = getInt("Enter Book ID: ")
+            title = input("Enter Title: ")
+            author = input("Enter Author: ")
+            pageCount = getInt("Enter Page Count: ")
             lib.addBooks(Book(bookID, title, author, pageCount))
             print("Book added.")
 
         elif choice == 2:
-            studentID = getInt("Student ID: ")
+            studentID = getInt("Enter Student ID: ")
             name = input("Enter Student Name: ")
             lib.addStudent(Student(studentID, name))
+            print("Student added.")
+            input("\nPress ENTER to continue...")
+
+        elif choice == 3:
+            lib.showBooks()
+            input("\nPress ENTER to continue...")
+
+        elif choice == 4:
+            lib.showStudent()
+            input("\nPress ENTER to continue...")
+
+        elif choice == 5:
+            getID = getInt("Enter Book ID:")
+            lib.searchBook(getID)
+            input("\nPress ENTER to continue...")
+
+        elif choice == 6:
+            getID = getInt("Enter Student ID:")
+            lib.searchStudent(getID)
+            input("\nPress ENTER to continue...")
+
+        elif choice == 7:
+            getID = getInt("Enter Student ID:")
+            getID2 = getInt("Enter Book ID:")
+            lib.borrowBook(getID, getID2)
+            input("\nPress ENTER to continue...")
+
+        elif choice == 8:
+            getID = getInt("Enter Student ID:")
+            getID2 = getInt("Enter Book ID:")
+            lib.returnBook(getID, getID2)
+            input("\nPress ENTER to continue...")
+
+        elif choice == 0:
+            print("Closing..")
+            break
+
+        else:
+            print("Something went wrong..")
+
+main()
 
 
     
